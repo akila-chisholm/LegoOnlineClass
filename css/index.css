@@ -1,0 +1,78 @@
+h2 { /* Selects all <h2> heading elements on the page */
+  display: none; /* Hide those headings so they do not take up space or show visually */
+} /* End of rules for h2 */
+
+p { /* Selects all paragraph (<p>) elements */
+  text-align: center; /* Center the inline text inside each paragraph */
+} /* End of rules for p */
+
+aside { /* Selects the <aside> element (usually sidebar content) */
+  font-size: 19px; /* Sets the type size inside the aside to 19 pixels */
+  padding: 5px 0; /* Adds 5px padding top and bottom, 0 left and right */
+  text-align: center; /* Centers text inside the aside */
+  width: 100%; /* Make the aside take the full available width in its container */
+} /* End of rules for aside */
+
+aside a { /* Selects <a> links that are inside an <aside> */
+  color: darkslategrey; /* Text color for the links */
+  display: block; /* Make each link behave like a block so it stacks and can get width/padding */
+  padding: 5px 0; /* Add vertical padding so each link has clickable space above and below */
+  text-decoration: none; /* Remove the default underline from links */
+  width: 100%; /* Make the link stretch the full width of its parent (useful when display:block) */
+} /* End of rules for aside a */
+
+aside a:hover { /* Selects aside links when the mouse pointer is over them */
+  background-color: red; /* Change the background to red on hover to show visual feedback */
+  color: white; /* Make the text white while hovered for contrast */
+} /* End of rules for aside a:hover */
+
+.hero { /* Selects elements with class="hero" (usually a large banner area) */
+  width: 100%; /* Make the hero take the full width of its container */
+  aspect-ratio: 16 / 9; /* Keep the hero area in a 16:9 ratio (height calculated from width) */
+  overflow: hidden; /* Hide any content that spills outside the hero box */
+  position: relative; /* Establish a positioned ancestor so absolutely positioned children align to it */
+  display: flex; /* Use flexbox to align children inside the hero */
+  align-items: center; /* Vertically center flex children inside the hero */
+  justify-content: center; /* Horizontally center flex children inside the hero */
+} /* End of rules for .hero */
+
+.hero img { /* Selects <img> elements that are inside an element with class "hero" */
+  width: 100%; /* Make the image fill the width of the hero container */
+  height: 100%; /* Make the image fill the height of the hero container */
+  object-fit: cover; /* Scale and crop the image so it covers the box without distortion */
+  position: absolute; /* Position the image absolutely so it layers inside the hero area */
+  inset: 0; /* Shortcut to set top:0; right:0; bottom:0; left:0; so the image fills its positioned parent */
+} /* End of rules for .hero img */
+
+@media only screen and (min-width: 768px) { /* Start a responsive rule that only applies on screens >= 768px wide */
+  main { /* Selects the <main> element inside this media query */
+    display: flex; /* Lay out main's children side-by-side using flexbox on larger screens */
+  } /* End of rules for main inside media query */
+
+  aside { /* Re-define aside styling for larger screens */
+    align-items: center; /* Center items inside the aside on the cross axis */
+    display: flex; /* Turn the aside into a flex container */
+    flex-direction: column; /* Stack aside children vertically */
+    float: left; /* Float the aside to the left (older layout technique; used here to pair with section rules) */
+    justify-content: center; /* Center children vertically inside the aside */
+    width: 30%; /* Give the aside 30% of the horizontal space on larger screens */
+  } /* End of rules for aside inside media query */
+
+  section { /* Selects the <section> element inside this media query */
+    display: inline; /* Make the section inline-level (paired with float:right below) */
+    float: right; /* Float the section to the right of the aside */
+    width: 70%; /* Give the section the remaining 70% width beside the aside */
+  } /* End of rules for section inside media query */
+
+  .indexbody { /* Selects elements with class="indexbody" inside this media query */
+    max-width: auto; /* Let the browser determine the max width (default behavior) */
+    align-self: center; /* Center this element along the cross axis inside a flex parent */
+    margin: 10px; /* Add 10px space around the element */
+    padding: 10px; /* Add 10px inner spacing so content doesn't touch edges */
+    box-sizing: border-box; /* Include padding and border inside the element's width and height calculations */
+    background-color: darkslategrey; /* Set a dark slate grey background color */
+    color: lightgrey; /* Set the text color to light grey for contrast against the dark background */
+    font-size: 19px; /* Set the font size inside .indexbody to 19 pixels */
+    line-height: 1.6; /* Make lines taller for easier reading (1.6 times the font size) */
+  } /* End of rules for .indexbody inside media query */
+} /* End of media query */
